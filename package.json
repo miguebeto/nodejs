@@ -11,8 +11,19 @@
   "license": "MIT",
   "dependencies": {
     "colors": "^1.4.0",
+    "formidable": "^1.2.2",
+    "mongodb": "^3.6.4",
     "mongoose": "^5.12.0",
+    "upper-case": "^2.0.2",
     "yargs": "^16.2.0"
   },
-  "keywords": []
+  "keywords": [],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/miguebeto/nodejs.git"
+  },
+  "bugs": {
+    "url": "https://github.com/miguebeto/nodejs/issues"
+  },
+  "homepage": "https://github.com/miguebeto/nodejs#readme"
 }

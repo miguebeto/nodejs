@@ -718,3 +718,103 @@ for (productos in carritoLlenoin) {
       console.log(rangoNumeros(1, 100));
 
 
+//prototipos y constructores
+
+function Oferta(nombre, genero) {
+    //Atributos
+    this.nombre = nombre;
+    this.genero = genero;
+
+    //Metodos
+    this.saludo= function () {
+        console.log(`Hola, me llamo:  ${this.nombre}`);
+    }
+}
+
+/* const miguel = new Oferta('miguel','masculino'),
+marcela = new Oferta('marcela','femenino'); */
+
+/* 
+console.log(miguel);
+console.log(marcela);
+ */
+
+
+//Asignando metodos al prototipo
+
+function Oferta(nombre, genero) {
+    //Atributos
+    this.nombre = nombre;
+    this.genero = genero;
+
+}
+
+//Metodo asignado al prototipo de la funcion constructora
+Oferta.prototype.saludo= function () {
+    console.log(`Hola, me llamo  ${this.nombre} y soy de género ${this.genero}`);
+}
+
+const miguel = new Oferta('miguel','masculino');
+const marcela = new Oferta('marcela','femenino');
+
+
+console.log(miguel);
+console.log(marcela);
+
+miguel.saludo();
+marcela.saludo();
+
+
+//Metodo asignado al prototipo de la funcion constructora
+
+class Car {
+    constructor(nombre, modelo){
+        this.nombre= nombre;
+        this.modelo= modelo;
+    }
+     //metodos
+     nombrar(){
+        console.log(`El nombre del carro es ${this.nombre}`);
+    }
+
+    modelar(){
+        console.log(`El modelo del carro es ${this.modelo}`);
+    }
+    age(){
+        let date = new Date();
+    return date.getFullYear() - this.modelo;
+    }
+}
+
+
+class Gasolina extends Car{
+    constructor(nombre, modelo, Gasolina){
+        super(nombre,modelo);
+        this.Gasolina = Gasolina;
+    }
+    //sobreescritura de metodo
+    modelar(){
+        console.log(`El modelo del carro es ${this.modelo} a ${this.Gasolina}`);
+    }
+}
+
+//Asignando metodos a variables
+const Giovanny = new Car("Susuki T-Cross", "2021")
+//const Libardo = new Car("chevrolet captiva","2012");
+const age = new Car("chevrolet captiva","2012");
+const gasolinaGiovanny = new Gasolina("Susuki T-Cross", "2021", "Corriente");
+const gasolinaLibardo = new Gasolina("chevrolet captiva","2012", "Extra");
+const Libardo = new Gasolina("chevrolet captiva","2012", "Diesel");
+
+       
+//llamando las variables
+console.log(Giovanny);
+Giovanny.nombrar();
+Giovanny.modelar();
+console.log(Libardo);
+Libardo.nombrar();
+Libardo.modelar();
+console.log(`El carro de libardo tiene ${Libardo.age()} años`);
+console.log(`El carro de Giovanny tiene ${Giovanny.age()} años`);
+console.log(gasolinaGiovanny);
+console.log(gasolinaLibardo);
